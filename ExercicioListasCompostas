@@ -1,0 +1,28 @@
+pessoas = list()
+dados = list()
+resposta = 's'  
+mai = men = 0
+while resposta.lower() != 'n':  
+    dados.append(str(input('Digite o Nome: ')))
+    dados.append(int(input('Digite o Peso em Kilos: ')))
+    if len(pessoas) == 0:
+        mai = men = dados[1]
+    else:
+        if dados[1] > mai:
+            mai = dados[1]
+        if dados[1] < mai:
+            men = dados[1]
+    pessoas.append(dados[:])  
+    dados.clear()  
+    resposta = input("Deseja Continuar? [S/N]: ")
+print(f'Total de Pessoas Cadastradas: {len(pessoas)}')
+print(f'O Maior peso foi de {mai}Kg. Peso de ', end='')
+for p in pessoas:
+    if p[1] == mai:
+        print(f"[{p[0]}]", end='')
+print()
+print(f'O Menor peso foi de {men}Kg. Peso de', end='')
+for p in pessoas:
+    if p[1] == men:
+        print(f"[{p[0]}]", end='')
+print()
